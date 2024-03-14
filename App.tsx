@@ -1,12 +1,11 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 
 function App(): React.JSX.Element {
   return (
     <View>
-      <Text>ABC</Text>
-      <Text numberOfLines={5}>Prasoon</Text>
-      <Text>Gupta</Text>
+      <Image source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}} style={{height: 20, width: 20}} />
+      <Image source={require('./Tutorial.png')} style={{height: 20}} />
     </View>
   );
 }
