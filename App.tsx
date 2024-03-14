@@ -1,58 +1,19 @@
 import React from 'react';
-import {ScrollView, Text} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 
 function App(): React.JSX.Element {
   return (
-    <ScrollView>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-      <Text>ABC</Text>
-    </ScrollView>
+    <View>
+      <Text style={styles.textBold}>ABC</Text>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  textBold: {
+    color: 'red',
+    fontSize: 20,
+  },
+});
 
 export default App;
