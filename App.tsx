@@ -1,11 +1,15 @@
-import React from 'react';
-import {Image, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {TextInput, View} from 'react-native';
 
 function App(): React.JSX.Element {
+  const [textChange, setTextChange] = useState('');
   return (
     <View>
-      <Image source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}} style={{height: 20, width: 20}} />
-      <Image source={require('./Tutorial.png')} style={{height: 20}} />
+      <TextInput
+        value={textChange}
+        onChangeText={setTextChange}
+        placeholder="Enter String"
+      />
     </View>
   );
 }
