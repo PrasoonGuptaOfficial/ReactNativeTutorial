@@ -1,10 +1,12 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 
 function App(): React.JSX.Element {
   return (
-    <View>
-      <Text>ABC</Text>
+    <View style={{height: '100%'}}>
+      <View style={{backgroundColor: 'red', flex: 1}} />
+      <View style={{backgroundColor: 'yellow', flex: 2}} />
+      <View style={{backgroundColor: 'orange', flex: 3}} />
     </View>
   );
 }
