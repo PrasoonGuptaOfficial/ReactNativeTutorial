@@ -1,16 +1,57 @@
-import React, {useState} from 'react';
-import {TextInput, View} from 'react-native';
+import React from 'react';
+import {ScrollView, Text} from 'react-native';
 
 function App(): React.JSX.Element {
-  const [textChange, setTextChange] = useState('');
   return (
-    <View>
-      <TextInput
-        value={textChange}
-        onChangeText={setTextChange}
-        placeholder="Enter String"
-      />
-    </View>
+    <ScrollView>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+      <Text>ABC</Text>
+    </ScrollView>
   );
 }
 
