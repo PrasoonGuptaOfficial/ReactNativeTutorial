@@ -1,64 +1,53 @@
 import React from 'react';
-import {FlatList, Text, View} from 'react-native';
+import {SectionList, Text, View} from 'react-native';
 
-type ItemPropType = {
+type SectionListData = {
   id: number;
   name: string;
+  data: string[];
 };
 
-const DATA: ItemPropType[] = [
+const DATA: SectionListData[] = [
   {
     id: 1,
     name: 'Prasoon',
+    data: ['React Native', 'React'],
   },
   {
     id: 2,
-    name: 'Prasoon',
+    name: 'Lokit',
+    data: ['Android'],
   },
   {
     id: 3,
-    name: 'Prasoon',
+    name: 'Pulkit',
+    data: ['UI', 'UX'],
   },
   {
     id: 4,
-    name: 'Prasoon',
-  },
-  {
-    id: 5,
-    name: 'Prasoon',
-  },
-  {
-    id: 6,
-    name: 'Prasoon',
-  },
-  {
-    id: 7,
-    name: 'Prasoon',
-  },
-  {
-    id: 8,
-    name: 'Prasoon',
-  },
-  {
-    id: 9,
-    name: 'Prasoon',
-  },
-  {
-    id: 10,
-    name: 'Prasoon',
+    name: 'Umang',
+    data: ['Marketing', 'Analyst'],
   },
 ];
 
 function App(): React.JSX.Element {
-  const flatlistRenderItem = ({item}: {item: ItemPropType}) => {
-    return <Text>{item.name}</Text>;
+  const sectionListRenderItem = ({item}: {item: string}) => {
+    return <Text>{item}</Text>;
+  };
+  const sectionHeaderRenderItem = ({
+    section: {name},
+  }: {
+    section: {name: string};
+  }) => {
+    return <Text>{name}</Text>;
   };
   return (
     <View>
-      <FlatList
-        data={DATA}
-        renderItem={flatlistRenderItem}
-        keyExtractor={item => item.id.toString()}
+      <SectionList
+        sections={DATA}
+        keyExtractor={item => item}
+        renderItem={sectionListRenderItem}
+        renderSectionHeader={sectionHeaderRenderItem}
       />
     </View>
   );
