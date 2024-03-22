@@ -1,53 +1,57 @@
-import React from 'react';
-import {SectionList, Text, View} from 'react-native';
-
-type SectionListData = {
-  id: number;
-  name: string;
-  data: string[];
-};
-
-const DATA: SectionListData[] = [
-  {
-    id: 1,
-    name: 'Prasoon',
-    data: ['React Native', 'React'],
-  },
-  {
-    id: 2,
-    name: 'Lokit',
-    data: ['Android'],
-  },
-  {
-    id: 3,
-    name: 'Pulkit',
-    data: ['UI', 'UX'],
-  },
-  {
-    id: 4,
-    name: 'Umang',
-    data: ['Marketing', 'Analyst'],
-  },
-];
+import React, {useState} from 'react';
+import {Button, PermissionsAndroid, Text, View} from 'react-native';
 
 function App(): React.JSX.Element {
-  const sectionListRenderItem = ({item}: {item: string}) => {
-    return <Text>{item}</Text>;
+  const [accessed, setAccessed] = useState('');
+  const androidPermission = async () => {
+    try {
+      const access = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.CAMERA,
+        {
+          title: 'App Permission',
+          message: 'Demo',
+          buttonNeutral: 'Ask Me Later',
+          buttonPositive: 'Ok',
+          buttonNegative: 'Cancel',
+        },
+      );
+      if (access === PermissionsAndroid.RESULTS.GRANTED) {
+        setAccessed('Granted');
+      } else {
+        setAccessed('Denied');
+      }
+    } catch (e) {
+      throw new Error('Something went wrong');
+    }
   };
-  const sectionHeaderRenderItem = ({
-    section: {name},
-  }: {
-    section: {name: string};
-  }) => {
-    return <Text>{name}</Text>;
+  const bluetoothAndroidPermission = async () => {
+    try {
+      const access = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
+        {
+          title: 'App Permission',
+          message: 'Demo',
+          buttonNeutral: 'Ask Me Later',
+          buttonPositive: 'Ok',
+          buttonNegative: 'Cancel',
+        },
+      );
+      if (access === PermissionsAndroid.RESULTS.GRANTED) {
+        setAccessed('Granted');
+      } else {
+        setAccessed('Denied');
+      }
+    } catch (e) {
+      throw new Error('Something went wrong');
+    }
   };
   return (
     <View>
-      <SectionList
-        sections={DATA}
-        keyExtractor={item => item}
-        renderItem={sectionListRenderItem}
-        renderSectionHeader={sectionHeaderRenderItem}
+      <Text>{accessed}</Text>
+      <Button title="Camera Permission" onPress={androidPermission} />
+      <Button
+        title="Bluetooth Permission"
+        onPress={bluetoothAndroidPermission}
       />
     </View>
   );
