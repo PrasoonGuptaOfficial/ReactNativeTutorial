@@ -1,15 +1,8 @@
 /*
 STOP WATCH TIMER APPLICATION
 */
-import React, {useEffect, useReducer, useRef, useState} from 'react';
-import {
-  AppState,
-  Pressable,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import React, {useReducer, useRef} from 'react';
+import {Pressable, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 
 interface State {
   startTimerFlag: boolean;
@@ -104,34 +97,6 @@ const reducer = (state: State, action: Action): State => {
 
 function App(): React.JSX.Element {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [appState, setAppState] = useState<string>(AppState.currentState);
-  useEffect(() => {
-    const onHandleAppStateChange = (nextAppState: string) => {
-      console.log('Prasoon => ', nextAppState, typeof nextAppState);
-      setAppState(nextAppState);
-    };
-    const subscription = AppState.addEventListener(
-      'change',
-      onHandleAppStateChange,
-    );
-    return () => {
-      subscription.remove();
-    };
-  }, []);
-  let appStatusText;
-  switch (appState) {
-    case 'active':
-      appStatusText = 'Active';
-      break;
-    case 'background':
-      appStatusText = 'Background';
-      break;
-    case 'inactive':
-      appStatusText = 'Inactive';
-      break;
-    default:
-      appStatusText = 'Unknown';
-  }
   let timerIntervalIdRef: TimerIntervalIdRef = useRef();
   const onStartTimerHandler = () => {
     timerIntervalIdRef.current = setInterval(() => {
@@ -156,7 +121,6 @@ function App(): React.JSX.Element {
     <SafeAreaView style={styles.mainAppView}>
       <Text style={styles.mainAppText}>STOP WATCH TIMER APP</Text>
       <View />
-      <Text>{appStatusText}</Text>
       <Text style={styles.timerText}>{`${onTwoDigitConversion(
         state.day,
       )}:${onTwoDigitConversion(state.hr)}:${onTwoDigitConversion(
